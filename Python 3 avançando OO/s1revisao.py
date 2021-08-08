@@ -30,9 +30,9 @@ class filmes():
     def __init__(self,nomeFilme,anoFilme,categFilme,funcionariosFilme,duracaoFilme):
         if type(funcionariosFilme) is list:
             self.__funcionariosFilme = funcionariosFilme
-            self.__nomeFilme = nomeFilme.title()
+            self.__nomeFilme = nomeFilme
             self.__anoFilme = anoFilme
-            self.__categFilme = categFilme.title()
+            self.__categFilme = categFilme
             self.__duracaoFilme = duracaoFilme
             self.__likes = 0
         else:
@@ -41,6 +41,28 @@ class filmes():
     @property
     def likes(self):
         return self.__likes
+    @property
+    def duracaoFilme(self):
+        return self.__duracaoFilme
+    @property
+    def categFilme(self):
+        return self.__categFilme.title()
+    @property
+    def anoFilme(self):
+        return self.__anoFilme
+    @property
+    def nomeFilme(self):
+        return self.__nomeFilme.title()
+    @property
+    def funcionariosFilme(self):
+        return self.__funcionariosFilme       
     @likes.setter
     def likes(self,likesToAdd):
         self.likes += int(likesToAdd)
+    @funcionariosFilme.setter
+    def funcionariosFilme(self,index,key,newValue):
+        self.__funcionariosFilme[index][key] = newValue
+"""
+Dúvida --> como fazer o setter de uma propriedade tipo lista?
+
+"""
