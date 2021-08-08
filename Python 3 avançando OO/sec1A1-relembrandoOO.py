@@ -7,4 +7,4 @@ class filmes():
             self.categFilme = categFilme
             self.duracaoFilme = duracaoFilme
         else:
-            pass
+            print("Please tell us the right information")
