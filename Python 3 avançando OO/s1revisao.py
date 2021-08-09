@@ -25,22 +25,33 @@ from s1revisao import filmes
         }
     ]
     hp1 = filmes("Harry Potter e a Pedra filosofal",1999,"Ficção mística",funcionarios,220)
+    ---------------------------------------------------------------------------------------------
+    Sec 2 herança
 """
-class filmes():
-    def __init__(self,nomeFilme,anoFilme,categFilme,funcionariosFilme,duracaoFilme):
-        if type(funcionariosFilme) is list:
-            self.__funcionariosFilme = funcionariosFilme
-            self.__nomeFilme = nomeFilme
-            self.__anoFilme = anoFilme
-            self.__categFilme = categFilme
-            self.__duracaoFilme = duracaoFilme
-            self.__likes = 0
-        else:
-            print("Please tell us the right information")
 
+class programa:
+    def __init__(self,nome,ano,categoria,funcionarios,likes):
+        self.__nome = nome
+        self.__ano = ano
+        self.categoria = categoria
+        self.funcionarios = funcionarios
+        self.likes = 0
+    
     @property
     def likes(self):
         return self.__likes
+    @likes.setter
+    def likes(self,likesToAdd):
+        self.likes += int(likesToAdd)
+
+
+class filmes(programa):
+    def __init__(self,nomeFilme,anoFilme,categFilme,funcionariosFilme,duracaoFilme):
+        if type(funcionariosFilme) is list:
+            super().__init__(nomeFilme,anoFilme,categFilme,funcionariosFilme)
+            self.__duracaoFilme = duracaoFilme            
+        else:
+            print("Please tell us the right information")
     @property
     def duracaoFilme(self):
         return self.__duracaoFilme
@@ -56,9 +67,7 @@ class filmes():
     @property
     def funcionariosFilme(self):
         return self.__funcionariosFilme       
-    @likes.setter
-    def likes(self,likesToAdd):
-        self.likes += int(likesToAdd)
+    
     @funcionariosFilme.setter
     def funcionariosFilme(self,index,key,newValue):
         self.__funcionariosFilme[index][key] = newValue
