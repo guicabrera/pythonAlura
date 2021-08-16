@@ -65,12 +65,26 @@ class programa:
 
     def alteraFuncionario(self,index,key,newValue):
         self.__funcionarios[index][key] = newValue
+    def printProgram(self):
+        print(f"Program information:\n Year: {self.ano}\n"
+        f"Name: {self.ano}\n"
+        f"Category: {self.categoria}\n"
+        f"Likes: {self.likes}\n")
 
 class filmes(programa):
     def __init__(self,nomeFilme,anoFilme,categFilme,funcionariosFilme,duracaoFilme):
             super().__init__(nomeFilme,anoFilme,categFilme,funcionariosFilme)
             self.__duracaoFilme = duracaoFilme
-
+    
+    @property
+    def duracaoFilme(self):
+        return self.__duracaoFilme
+    def printProgram(self):
+        print(f"Program information:\n Year: {self.ano}\n"
+        f"Name: {self.ano}\n"
+        f"Category: {self.categoria}\n"
+        f"Likes: {self.likes}\n"
+        f"Duration: {self.duracaoFilme}\n")
 class serie(programa):
     def __init__(self,nomeSerie,anoSerie,categSerie,funcionariosSerie,temporadasSerie,duracaoEpisodio):
         super().__init__(nomeSerie,anoSerie,categSerie,funcionariosSerie)
@@ -83,12 +97,45 @@ class serie(programa):
     @property
     def duracaoEpisodio(self):
         return self.__duracaoEpisodio
-        
-    """       
-    @funcionariosFilme.setter
-    def funcionariosFilme(self,index,key,newValue):
-        self.__funcionariosFilme[index][key] = newValue"""
-"""
-Dúvida --> como fazer o setter de uma propriedade tipo lista?
+    
+    def printProgram(self):
+        print(f"Program information:\n Year: {self.ano}\n"
+        f"Name: {self.ano}\n"
+        f"Category: {self.categoria}\n"
+        f"Likes: {self.likes}\n"
+        f"Duration: {self.duracaoEpisodio}\n"
+        f"Seasons: {self.temporadasSerie}\n")
 
-"""
+
+
+funcionarios = [
+        {   
+            "nome":"Alisson",
+            "idade":25,
+            "salario":5000,
+            "funcao":"Atriz",
+            "idFuncionario":35478
+        },
+        {
+            "nome":"Jonas",
+            "idade":30,
+            "salario":15000,
+            "funcao":"Diretor",
+            "idFuncionario":20555
+        },
+        {
+            "nome":"Fernan",
+            "idade":25,
+            "salario":5000,
+            "funcao":"Ator",
+            "idFuncionario":35479
+        }
+    ]
+hp1 = filmes("Harry Potter e a Pedra filosofal",1999,"Ficção mística",funcionarios,220)
+
+himym = serie("How I Meet Your Mother","2005","Humor",funcionarios,10,25)
+
+myPrograms = [hp1,himym]
+
+for program in myPrograms:
+    program.printProgram()
