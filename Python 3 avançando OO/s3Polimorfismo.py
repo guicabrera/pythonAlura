@@ -40,7 +40,8 @@ class programa:
         else:
             print("Please tell us the right information")
             quit()
-    
+    def __str__(self):
+        return f"Program information:\n Year: {self.ano}\n Name: {self.ano}\n Category: {self.categoria}\nLikes: {self.likes}\n"
     @property
     def nome(self):
         return self.__nome
@@ -65,32 +66,24 @@ class programa:
 
     def alteraFuncionario(self,index,key,newValue):
         self.__funcionarios[index][key] = newValue
-    def printProgram(self):
-        print(f"Program information:\n Year: {self.ano}\n"
-        f"Name: {self.ano}\n"
-        f"Category: {self.categoria}\n"
-        f"Likes: {self.likes}\n")
+        
 
 class filmes(programa):
     def __init__(self,nomeFilme,anoFilme,categFilme,funcionariosFilme,duracaoFilme):
             super().__init__(nomeFilme,anoFilme,categFilme,funcionariosFilme)
             self.__duracaoFilme = duracaoFilme
-    
+    def __str__(self):
+        return f"Program information:\n Year: {self.ano}\n Name: {self.ano}\n Category: {self.categoria}\n Likes: {self.likes}\n Duration: {self.duracaoFilme}\n"
     @property
     def duracaoFilme(self):
         return self.__duracaoFilme
-    def printProgram(self):
-        print(f"Program information:\n Year: {self.ano}\n"
-        f"Name: {self.ano}\n"
-        f"Category: {self.categoria}\n"
-        f"Likes: {self.likes}\n"
-        f"Duration: {self.duracaoFilme}\n")
 class serie(programa):
     def __init__(self,nomeSerie,anoSerie,categSerie,funcionariosSerie,temporadasSerie,duracaoEpisodio):
         super().__init__(nomeSerie,anoSerie,categSerie,funcionariosSerie)
         self.__temporadasSerie = temporadasSerie
         self.__duracaoEpisodio = duracaoEpisodio
-    
+    def __str__(self):
+        return f"Program information:\n Year: {self.ano}\n Name: {self.ano}\n Category: {self.categoria}\n Likes: {self.likes}\n Duration: {self.duracaoEpisodio}\n Seasons: {self.temporadasSerie}\n"
     @property
     def temporadasSerie(self):
         return self.__temporadasSerie
@@ -98,13 +91,7 @@ class serie(programa):
     def duracaoEpisodio(self):
         return self.__duracaoEpisodio
     
-    def printProgram(self):
-        print(f"Program information:\n Year: {self.ano}\n"
-        f"Name: {self.ano}\n"
-        f"Category: {self.categoria}\n"
-        f"Likes: {self.likes}\n"
-        f"Duration: {self.duracaoEpisodio}\n"
-        f"Seasons: {self.temporadasSerie}\n")
+    
 
 
 
@@ -138,4 +125,4 @@ himym = serie("How I Meet Your Mother","2005","Humor",funcionarios,10,25)
 myPrograms = [hp1,himym]
 
 for program in myPrograms:
-    program.printProgram()
+    print(program)
