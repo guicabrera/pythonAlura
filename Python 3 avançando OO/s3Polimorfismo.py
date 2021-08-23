@@ -40,8 +40,10 @@ class programa:
         else:
             print("Please tell us the right information")
             quit()
+    #special function that returns a message when we print the object programa
     def __str__(self):
         return f"Program information:\n Year: {self.ano}\n Name: {self.ano}\n Category: {self.categoria}\nLikes: {self.likes}\n"
+    
     @property
     def nome(self):
         return self.__nome
