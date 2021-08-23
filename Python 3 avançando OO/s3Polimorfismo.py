@@ -29,6 +29,9 @@ from s1revisao import filmes
     Sec 2 herança
 """
 
+
+
+
 class programa:
     def __init__(self,nome,ano,categoria,funcionarios):
         if type(funcionarios) is list:
@@ -67,9 +70,9 @@ class programa:
         self.__funcionarios.append(newFuncionario)
 
     def alteraFuncionario(self,index,key,newValue):
-        self.__funcionarios[index][key] = newValue
-        
-
+        self.__funcionarios[index][key] = newValue 
+    def darLike(self):
+        self.likes = 1
 class filmes(programa):
     def __init__(self,nomeFilme,anoFilme,categFilme,funcionariosFilme,duracaoFilme):
             super().__init__(nomeFilme,anoFilme,categFilme,funcionariosFilme)
@@ -92,8 +95,13 @@ class serie(programa):
     @property
     def duracaoEpisodio(self):
         return self.__duracaoEpisodio
-    
-    
+
+class playList(list):
+    def __init__(self, playlistName,listaProgramas) :
+        self.__name = playlistName
+        super().__init__(listaProgramas)
+
+
 
 
 
@@ -121,10 +129,17 @@ funcionarios = [
         }
     ]
 hp1 = filmes("Harry Potter e a Pedra filosofal",1999,"Ficção mística",funcionarios,220)
-
+hp1.darLike()
+hp1.darLike()
+hp1.darLike()
+hp1.darLike()
 himym = serie("How I Meet Your Mother","2005","Humor",funcionarios,10,25)
-
+himym.darLike()
+himym.darLike()
+himym.darLike()
+himym.darLike()
 myPrograms = [hp1,himym]
 
-for program in myPrograms:
-    print(program)
+minhaPlayList = playList("Nerd List",[hp1,himym])
+for item in minhaPlayList:
+    print(item)
