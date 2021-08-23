@@ -96,14 +96,16 @@ class serie(programa):
     def duracaoEpisodio(self):
         return self.__duracaoEpisodio
 
-class playList(list):
+class playList():
     def __init__(self, playlistName,listaProgramas) :
         self.__name = playlistName
-        super().__init__(listaProgramas)
-
-
-
-
+        self.__listaProgramas = listaProgramas
+    @property
+    def listagem(self):
+        return self.__listaProgramas
+    @property
+    def tamanho(self):
+        return self.__listaProgramas
 
 funcionarios = [
         {   
