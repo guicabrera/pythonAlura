@@ -89,6 +89,7 @@ class serie(programa):
         self.__duracaoEpisodio = duracaoEpisodio
     def __str__(self):
         return f"Program information:\n Year: {self.ano}\n Name: {self.ano}\n Category: {self.categoria}\n Likes: {self.likes}\n Duration: {self.duracaoEpisodio}\n Seasons: {self.temporadasSerie}\n"
+    
     @property
     def temporadasSerie(self):
         return self.__temporadasSerie
@@ -100,6 +101,8 @@ class playList():
     def __init__(self, playlistName,listaProgramas) :
         self.__name = playlistName
         self.__listaProgramas = listaProgramas
+    def __len__(self):
+        return len(self.__listaProgramas)
     def __getitem__(self,item):
         return self.__listaProgramas[item]
     @property
@@ -145,5 +148,7 @@ himym.darLike()
 myPrograms = [hp1,himym]
 
 minhaPlayList = playList("Nerd List",[hp1,himym])
+
+print(f"Minha playlist possui {len(minhaPlayList)}")
 for item in minhaPlayList:
     print(item)
